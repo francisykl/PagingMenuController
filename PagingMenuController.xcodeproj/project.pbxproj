@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47A996EC1DBB0CB20060C7F4 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A996EB1DBB0CB20060C7F4 /* GradientView.swift */; };
+		5C09EA1B9A1F1DC0E67001D9 /* Pods_PagingMenuController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77C970DA25DCABB90E732C4D /* Pods_PagingMenuController.framework */; };
 		EC202B4F1D0C54D100D527D2 /* GestureHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC202B441D0C54D100D527D2 /* GestureHandler.swift */; };
 		EC202B501D0C54D100D527D2 /* LabelSizeCalculatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC202B451D0C54D100D527D2 /* LabelSizeCalculatable.swift */; };
 		EC202B511D0C54D100D527D2 /* MenuItemMultipliable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC202B461D0C54D100D527D2 /* MenuItemMultipliable.swift */; };
@@ -26,6 +28,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		47A996EB1DBB0CB20060C7F4 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GradientView.swift; path = Pod/Classes/GradientView.swift; sourceTree = SOURCE_ROOT; };
+		77C970DA25DCABB90E732C4D /* Pods_PagingMenuController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PagingMenuController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		82E164B5542A7993A4F18935 /* Pods-PagingMenuController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PagingMenuController.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PagingMenuController/Pods-PagingMenuController.debug.xcconfig"; sourceTree = "<group>"; };
+		C06EBD61A96A4ADF55E6BA70 /* Pods-PagingMenuController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PagingMenuController.release.xcconfig"; path = "Pods/Target Support Files/Pods-PagingMenuController/Pods-PagingMenuController.release.xcconfig"; sourceTree = "<group>"; };
 		EC202B441D0C54D100D527D2 /* GestureHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureHandler.swift; sourceTree = "<group>"; };
 		EC202B451D0C54D100D527D2 /* LabelSizeCalculatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelSizeCalculatable.swift; sourceTree = "<group>"; };
 		EC202B461D0C54D100D527D2 /* MenuItemMultipliable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemMultipliable.swift; sourceTree = "<group>"; };
@@ -51,12 +57,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C09EA1B9A1F1DC0E67001D9 /* Pods_PagingMenuController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		275D724F7DC028B1731C5D91 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				77C970DA25DCABB90E732C4D /* Pods_PagingMenuController.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		897A5C93EBE47591A0F03AB8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				82E164B5542A7993A4F18935 /* Pods-PagingMenuController.debug.xcconfig */,
+				C06EBD61A96A4ADF55E6BA70 /* Pods-PagingMenuController.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		EC202B431D0C54D100D527D2 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +105,8 @@
 			children = (
 				ECE530691B6DEB18001CF201 /* PagingMenuController */,
 				ECE530681B6DEB18001CF201 /* Products */,
+				897A5C93EBE47591A0F03AB8 /* Pods */,
+				275D724F7DC028B1731C5D91 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,6 +128,7 @@
 				ECA210891D054879006AA684 /* PagingViewController.swift */,
 				ECE5306C1B6DEB18001CF201 /* PagingMenuController.h */,
 				ECE5306A1B6DEB18001CF201 /* Supporting Files */,
+				47A996EB1DBB0CB20060C7F4 /* GradientView.swift */,
 			);
 			path = PagingMenuController;
 			sourceTree = "<group>";
@@ -132,10 +159,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ECE5307D1B6DEB18001CF201 /* Build configuration list for PBXNativeTarget "PagingMenuController" */;
 			buildPhases = (
+				4108E8A9E4E4E729904A8EF0 /* [CP] Check Pods Manifest.lock */,
 				ECE530621B6DEB18001CF201 /* Sources */,
 				ECE530631B6DEB18001CF201 /* Frameworks */,
 				ECE530641B6DEB18001CF201 /* Headers */,
 				ECE530651B6DEB18001CF201 /* Resources */,
+				B9659D8D40B049401B6E9581 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -188,6 +217,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4108E8A9E4E4E729904A8EF0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B9659D8D40B049401B6E9581 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PagingMenuController/Pods-PagingMenuController-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		ECE530621B6DEB18001CF201 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -199,6 +261,7 @@
 				EC202B501D0C54D100D527D2 /* LabelSizeCalculatable.swift in Sources */,
 				EC202B521D0C54D100D527D2 /* MenuItemViewCustomizable.swift in Sources */,
 				ECA2108A1D054879006AA684 /* PagingViewController.swift in Sources */,
+				47A996EC1DBB0CB20060C7F4 /* GradientView.swift in Sources */,
 				EC202B591D0C54D100D527D2 /* ViewCleanable.swift in Sources */,
 				ECE530871B6DEB68001CF201 /* MenuItemView.swift in Sources */,
 				EC202B551D0C54D100D527D2 /* PageDetectable.swift in Sources */,
@@ -307,6 +370,7 @@
 		};
 		ECE5307E1B6DEB18001CF201 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82E164B5542A7993A4F18935 /* Pods-PagingMenuController.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
@@ -326,6 +390,7 @@
 		};
 		ECE5307F1B6DEB18001CF201 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C06EBD61A96A4ADF55E6BA70 /* Pods-PagingMenuController.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;

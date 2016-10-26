@@ -37,6 +37,15 @@ public struct MenuItemText {
     let font: UIFont
     let selectedFont: UIFont
     
+    public var selectedGradientStartColor:UIColor?
+    public var selectedGradientEndColor:UIColor?
+    public var selectedGradientStartPoint:CGPoint = CGPoint(x:0, y:0)
+    public var selectedGradientEndPoint:CGPoint = CGPoint(x:1, y:0)
+    public var gradientStartColor:UIColor?
+    public var gradientEndColor:UIColor?
+    public var gradientStartPoint:CGPoint = CGPoint(x:0, y:0)
+    public var gradientEndPoint:CGPoint = CGPoint(x:1, y:0)
+    
     public init(text: String = "Menu",
                 color: UIColor = UIColor.lightGray,
                 selectedColor: UIColor = UIColor.black,

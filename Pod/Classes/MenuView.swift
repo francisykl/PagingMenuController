@@ -263,12 +263,28 @@ open class MenuView: UIScrollView {
     }
     
     fileprivate func setupUnderlineViewIfNeeded() {
-        guard case let .underline(height, color, horizontalPadding, verticalPadding) = menuOptions.focusMode else { return }
+        switch menuOptions.focusMode {
+        case let .underline(height, color, horizontalPadding, verticalPadding):
+            underlineView.backgroundColor = color
+            let width = menuItemViews[currentPage].bounds.width - horizontalPadding * 2
+            underlineView.frame = CGRect(x: horizontalPadding, y: menuOptions.height - (height + verticalPadding), width: width, height: height)
+            contentView.addSubview(underlineView)
+            break
+        case let .gradientUnderline(height, startColor, endColor, horizontalPadding, verticalPadding):
+            if let underlineView = underlineView as? GradientUnderlineView {
+                underlineView.startColor = startColor
+                underlineView.endColor = endColor
+            } else {
+                underlineView.backgroundColor = startColor
+            }
+            let width = menuItemViews[currentPage].bounds.width - horizontalPadding * 2
+            underlineView.frame = CGRect(x: horizontalPadding, y: menuOptions.height - (height + verticalPadding), width: width, height: height)
+            contentView.addSubview(underlineView)
+            break
+        default:
+            break
+        }
         
-        let width = menuItemViews[currentPage].bounds.width - horizontalPadding * 2
-        underlineView.frame = CGRect(x: horizontalPadding, y: menuOptions.height - (height + verticalPadding), width: width, height: height)
-        underlineView.backgroundColor = color
-        contentView.addSubview(underlineView)
     }
     
     fileprivate func setupRoundRectViewIfNeeded() {
@@ -363,6 +379,7 @@ extension MenuView: ViewCleanable {
         contentView.removeFromSuperview()
         switch menuOptions.focusMode {
         case .underline: underlineView.removeFromSuperview()
+        case .gradientUnderline: underlineView.removeFromSuperview()
         case .roundRect: roundRectView.removeFromSuperview()
         case .none: break
         }

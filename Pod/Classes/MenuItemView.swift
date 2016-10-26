@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FXLabel
 
 open class MenuItemView: UIView {
     lazy public var titleLabel: UILabel = self.initLabel()
@@ -110,7 +111,8 @@ open class MenuItemView: UIView {
     }
     
     fileprivate func initLabel() -> UILabel {
-        let label = UILabel(frame: .zero)
+        let label = FXLabel(frame: .zero)
+        label.backgroundColor = UIColor.clear
         label.numberOfLines = 1
         label.textAlignment = .center
         label.isUserInteractionEnabled = true
@@ -167,7 +169,35 @@ open class MenuItemView: UIView {
     }
     
     fileprivate func updateLabel(_ label: UILabel, text: MenuItemText) {
-        label.textColor = isSelected ? text.selectedColor : text.color
+        if let label = label as? FXLabel {
+            if !isSelected {
+                if let gs = text.gradientStartColor, let ge = text.gradientEndColor {
+                    label.gradientStartColor = gs
+                    label.gradientEndColor = ge
+                    label.gradientStartPoint = text.gradientStartPoint
+                    label.gradientEndPoint = text.gradientEndPoint
+                } else {
+                    label.gradientStartColor = text.color
+                    label.gradientEndColor = text.color
+                    label.gradientStartPoint = CGPoint(x: 0, y: 0)
+                    label.gradientEndPoint = CGPoint(x: 1, y: 0)
+                }
+            } else {
+                if let gs = text.selectedGradientStartColor, let ge = text.selectedGradientEndColor {
+                    label.gradientStartColor = gs
+                    label.gradientEndColor = ge
+                    label.gradientStartPoint = text.gradientStartPoint
+                    label.gradientEndPoint = text.gradientEndPoint
+                } else {
+                    label.gradientStartColor = text.selectedColor
+                    label.gradientEndColor = text.selectedColor
+                    label.gradientStartPoint = CGPoint(x: 0, y: 0)
+                    label.gradientEndPoint = CGPoint(x: 1, y: 0)
+                }
+            }
+        } else {
+            label.textColor = text.color
+        }
         label.font = isSelected ? text.selectedFont : text.font
     }
     

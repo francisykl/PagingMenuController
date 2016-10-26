@@ -79,6 +79,7 @@ public enum MenuScrollingMode {
 public enum MenuFocusMode {
     case none
     case underline(height: CGFloat, color: UIColor, horizontalPadding: CGFloat, verticalPadding: CGFloat)
+    case gradientUnderline(height: CGFloat, startColor: UIColor, endColor: UIColor, horizontalPadding: CGFloat, verticalPadding: CGFloat)
     case roundRect(radius: CGFloat, horizontalPadding: CGFloat, verticalPadding: CGFloat, selectedColor: UIColor)
 }
 
