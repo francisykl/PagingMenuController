@@ -21,7 +21,7 @@ open class MenuView: UIScrollView {
         return $0
     }(UIView(frame: .zero))
     lazy fileprivate var underlineView: UIView = {
-        return UIView(frame: .zero)
+        return GradientUnderlineView(frame: .zero)
     }()
     lazy fileprivate var roundRectView: UIView = {
         $0.isUserInteractionEnabled = true
@@ -62,8 +62,7 @@ open class MenuView: UIScrollView {
         } else {
             screenWidth = UIScreen.main.bounds.width
         }
-//        return menuItemViews[currentPage].frame.midX - screenWidth / 2
-        return menuItemViews[currentPage].frame.origin.x - 10.0
+        return menuItemViews[currentPage].frame.midX - screenWidth / 2
     }
     fileprivate var contentOffsetXForCurrentPage: CGFloat {
         guard menuItemCount > MinimumSupportedViewCount else { return 0.0 }
@@ -275,6 +274,7 @@ open class MenuView: UIScrollView {
             if let underlineView = underlineView as? GradientUnderlineView {
                 underlineView.startColor = startColor
                 underlineView.endColor = endColor
+                underlineView.backgroundColor = nil
             } else {
                 underlineView.backgroundColor = startColor
             }
@@ -299,11 +299,15 @@ open class MenuView: UIScrollView {
     }
     
     fileprivate func animateUnderlineViewIfNeeded() {
-        guard case .underline(_, _, let horizontalPadding, _) = menuOptions.focusMode else { return }
-        
-        let targetFrame = menuItemViews[currentPage].frame
-        underlineView.frame.origin.x = targetFrame.minX + horizontalPadding
-        underlineView.frame.size.width = targetFrame.width - horizontalPadding * 2
+        switch menuOptions.focusMode {
+        case .underline(_, _, let horizontalPadding, _), .gradientUnderline(_, _, _, let horizontalPadding, _):
+            let targetFrame = menuItemViews[currentPage].frame
+            underlineView.frame.origin.x = targetFrame.minX + horizontalPadding
+            underlineView.frame.size.width = targetFrame.width - horizontalPadding * 2
+            break
+        default:
+            break
+        }
     }
     
     fileprivate func animateRoundRectViewIfNeeded() {
