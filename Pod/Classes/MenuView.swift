@@ -265,7 +265,13 @@ open class MenuView: UIScrollView {
     fileprivate func setupUnderlineViewIfNeeded() {
         switch menuOptions.focusMode {
         case let .underline(height, color, horizontalPadding, verticalPadding):
-            underlineView.backgroundColor = color
+            if let underlineView = underlineView as? GradientUnderlineView {
+                underlineView.startColor = color
+                underlineView.endColor = color
+                underlineView.backgroundColor = color
+            } else {
+                underlineView.backgroundColor = color
+            }
             let width = menuItemViews[currentPage].bounds.width - horizontalPadding * 2
             underlineView.frame = CGRect(x: horizontalPadding, y: menuOptions.height - (height + verticalPadding), width: width, height: height)
             contentView.addSubview(underlineView)

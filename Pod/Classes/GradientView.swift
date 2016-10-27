@@ -15,6 +15,8 @@ internal class GradientUnderlineView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         guard let layer = layer as? CAGradientLayer else { return }
+        layer.startPoint = CGPoint(x:0, y:0)
+        layer.endPoint = CGPoint(x:1, y:0)
         layer.locations = [0,1]
         layer.colors    = [startColor.cgColor, endColor.cgColor]
     }
