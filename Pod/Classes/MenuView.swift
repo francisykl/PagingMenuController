@@ -347,8 +347,10 @@ open class MenuView: UIScrollView {
         
         var inset = contentInset
         let halfWidth = frame.width / 2
-        inset.left = halfWidth - firstMenuView.frame.width / 2
-        inset.right = halfWidth - lastMenuView.frame.width / 2
+        //inset.left = halfWidth - firstMenuView.frame.width / 2
+        //inset.right = halfWidth - lastMenuView.frame.width / 2
+        inset.left = menuItemViews[currentPage].frame.origin.x - 10.0
+        inset.right = UIScreen.main.bounds.width - menuItemViews[currentPage].frame.width
         contentInset = inset
     }
     
