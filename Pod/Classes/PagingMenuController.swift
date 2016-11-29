@@ -126,7 +126,14 @@ open class PagingMenuController: UIViewController, PagingValidator {
         }
         
         constructMenuView()
+        removeLastDevider()
         layoutMenuView()
+    }
+    
+    fileprivate func removeLastDevider() {
+        if options.isRemoveLastDivider {
+            menuView?.menuItemViews.last?.removeDivider()
+        }
     }
     
     fileprivate func setupMenuController() {

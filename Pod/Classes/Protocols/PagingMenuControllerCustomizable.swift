@@ -16,6 +16,7 @@ public protocol PagingMenuControllerCustomizable {
     var lazyLoadingPage: LazyLoadingPage { get }
     var menuControllerSet: MenuControllerSet { get }
     var componentType: ComponentType { get }
+    var isRemoveLastDivider: Bool { get }
 }
 
 public extension PagingMenuControllerCustomizable {
@@ -36,6 +37,9 @@ public extension PagingMenuControllerCustomizable {
     }
     var menuControllerSet: MenuControllerSet {
         return .multiple
+    }
+    var isRemoveLastDivider: Bool {
+        return false
     }
 }
 
