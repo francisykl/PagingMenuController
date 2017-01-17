@@ -180,7 +180,7 @@ open class PagingMenuController: UIViewController, PagingValidator {
         let nextPage = page % pagingViewController.controllers.count
         let nextPagingViewController = pagingViewController.controllers[nextPage]
         delegate?.willMove(toMenu: nextPagingViewController, fromMenu: previousPagingViewController)
-        menuView?.move(toPage: page)
+        menuView?.move(toPage: page, animated:animated)
         
         pagingViewController.update(currentPage: nextPage)
         pagingViewController.currentViewController = nextPagingViewController
